@@ -50,11 +50,22 @@ void printRequestBody(RequestBody *body){
     }
 }
 
-bool keyExist(RequestBody *b,char *key){
+bool keyExist(RequestBody *b,const char key[]){
+    char *ptrKey = const_cast<char*>(key);
     for(int i=0;i<b->cant;i++){
-        if(strcmp(b->data[i].key,key) == 0){
+        if(strcmp(b->data[i].key,ptrKey) == 0){
             return true;
         }
     }
     return false;
+}
+
+const char* getKeyValue(RequestBody *b,const char *key){
+    char *ptrKey = const_cast<char*>(key);
+    for(int i=0;i<b->cant;i++){
+        if(strcmp(b->data[i].key,ptrKey) == 0){
+            return b->data[i].value;
+        }
+    }
+    return "error";
 }

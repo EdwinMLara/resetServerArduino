@@ -2,12 +2,13 @@
 #define ROUTER_H
 #include <stdio.h>
 #include "httpRequest.h"
+#include "httpResponse.h"
 #include "requestBody.h"
 
 typedef struct Path{
     char *method;
     char *Path;
-    void (*callback)(RequestBody*);
+    void (*callback)(RequestBody*,Response *);
 }Path;
 
 struct Router{
@@ -15,9 +16,9 @@ struct Router{
     Path *paths;
 };
 
-Path createPath(char *,char *,char *,void (*f)(RequestBody*));
+Path createPath(char *,char *,char *,void (*f)(RequestBody*,Response *));
 Router createRouter(char*);
-void addPath(Router *,char *,char *,void (*f)(RequestBody*));
-void runRouter(Router*,Request*);
+void addPath(Router *,char *,char *,void (*f)(RequestBody*,Response *));
+void runRouter(Router*,Request*,Response *);
 
 #endif // ROUTER_H

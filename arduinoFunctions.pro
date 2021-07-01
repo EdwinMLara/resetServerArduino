@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         httpRequest.cpp \
+        httpResponse.cpp \
         item.cpp \
         main.cpp \
         requestBody.cpp \
@@ -28,6 +29,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     httpRequest.h \
+    httpResponse.h \
     item.h \
     requestBody.h \
     router.h
