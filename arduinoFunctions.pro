@@ -18,6 +18,7 @@ SOURCES += \
         httpRequest.cpp \
         httpResponse.cpp \
         item.cpp \
+        lista.cpp \
         main.cpp \
         requestBody.cpp \
         router.cpp
@@ -31,5 +32,6 @@ HEADERS += \
     httpRequest.h \
     httpResponse.h \
     item.h \
+    lista.h \
     requestBody.h \
     router.h
